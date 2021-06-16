@@ -45,7 +45,7 @@ app.get(
     const searchText = req.query.cityname;
 
     if (searchText) {
-      const themoviedbUrl = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${searchText}&include_adult=false`;
+      const themoviedbUrl = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${searchText}&include_adult=false&sort_by=popularity.desc`;
 
       axios.get(themoviedbUrl).then((response) => {
           const responseMoviesData = response.data.results.map(
