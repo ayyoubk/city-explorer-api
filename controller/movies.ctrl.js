@@ -13,7 +13,6 @@ const moviesCtrl = (req, res) => {
   if (searchText) {
 
     if (cacheObjMovies[searchText] && ((Date.now() - cacheObjMovies[searchText].date) < 86400000)) {
-      console.log(cacheObjMovies);
         res.json(cacheObjMovies[searchText]);
     } else {
 
@@ -26,7 +25,6 @@ const moviesCtrl = (req, res) => {
         cacheObjMovies[searchText] = responseMoviesData;
 
         cacheObjMovies[searchText].date=Date.now();
-            console.log("newwwwwwwww");
         res.json(responseMoviesData);
       }).catch((error) => {
         res.send(error.message);

@@ -17,7 +17,6 @@ const wetherCtrl= (req, res) => {
 
       if (cacheObj[checkKey] && ((Date.now() - cacheObj[checkKey].date) < 86400000)) {
         // if data is avilable at cache
-        console.log("cach");
         res.json(cacheObj[checkKey]);
       } else {
         
@@ -30,7 +29,6 @@ const wetherCtrl= (req, res) => {
             
             cacheObj[checkKey] = responseData;
             cacheObj[checkKey].date=Date.now();
-            console.log(cacheObj);
             res.json(responseData);
         }).catch((error) => {
             res.send(error.message);
